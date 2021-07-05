@@ -29,6 +29,7 @@ def onePizza():
 	print()
 	print('\n\tThe pizza has an area of\n\n\t% l3.2f in^2.\n\tYou each get \n\n\t% 3.2f in^2 of pizza.\n' % (pizza1.area(), (pizza1.area() / people)))
 
+# this method takes the amount of people, and a string representing the size of the pizza, and calculates and returns how much pizza each person would get
 def pizzaPerPerson(people, size):
     	
     pizzaNumber = int(input('\nHow many ' + size + ' pizzas are there?\n'))
