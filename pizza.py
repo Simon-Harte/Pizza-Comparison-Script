@@ -54,6 +54,7 @@ def comparePizza():
 		elif smallPizzaPerPerson < largePizzaPerPerson:
 			print('\nYou should share a large pizza!\n\nSharing large pizzas nets you each\n\n\t% 3.2f in^2\n\nIf you got small pizzas, you would each only get\n\n\t% 3.2f in^2\n\n' % (largePizzaPerPerson, smallPizzaPerPerson))
 
+
 # the main method
 def main():
 	print('Welcome to the Pizza Area Calculator!\n')
