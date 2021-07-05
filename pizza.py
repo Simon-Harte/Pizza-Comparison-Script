@@ -21,38 +21,38 @@ class Pizza:
 # used when only one pizza is being ordered
 def onePizza():
     	
-		people = int(input('\nHow many of you are there?\n'))
-		
-		diameter = float(input('\nHow wide is your pizza in inches?\n'))
-		
-		pizza1 = Pizza(diameter)
-		print()
-		print('\n\tThe pizza has an area of\n\n\t% l3.2f in^2.\n\tYou each get \n\n\t% 3.2f in^2 of pizza.\n' % (pizza1.area(), (pizza1.area() / people)))
+	people = int(input('\nHow many of you are there?\n'))
+	
+	diameter = float(input('\nHow wide is your pizza in inches?\n'))
+	
+	pizza1 = Pizza(diameter)
+	print()
+	print('\n\tThe pizza has an area of\n\n\t% l3.2f in^2.\n\tYou each get \n\n\t% 3.2f in^2 of pizza.\n' % (pizza1.area(), (pizza1.area() / people)))
+
+def pizzaPerPerson(people, size):
+    	
+    pizzaNumber = int(input('\nHow many ' + size + ' pizzas are there?\n'))
+    diameter = float(input('\nHow wide are the pizzas in inches?\n'))
+    pizza = Pizza(diameter)
+    totalPizzaArea = pizza.area() * pizzaNumber
+    pizzaPerPerson = totalPizzaArea / people
+    return pizzaPerPerson
+
+	
 
 # used when two or more pizzas are being ordered.
 # can be used to compare pizzas of different sizes	
 def comparePizza():
-    	
-		people = int(input('\nHow many of you are there?\n'))
-
-		smallPizzaNumber = int(input('\nHow many small pizzas are there?\n'))
-		
-		smallDiameter = float(input('\nHow wide are the smaller pizzas in inches?\n'))
-		smallPizza = Pizza(smallDiameter)
-		totalSmallPizzaArea = smallPizza.area() * smallPizzaNumber
-		smallPizzaPerPerson = totalSmallPizzaArea / people
-		
-		largePizzaNumber = int(input('\nHow many large pizzas are there?\n'))
-		
-		largeDiameter = float(input('\nHow wide is the larger pizza in inches?\n'))
-		largePizza = Pizza(largeDiameter)
-		totalLargePizzaArea = largePizza.area() * largePizzaNumber
-		largePizzaPerPerson = totalLargePizzaArea / people
-		
-		if smallPizzaPerPerson > largePizzaPerPerson:
-			print('\nYou are better off getting a smaller pizzas!\n\nYou will each get\n\n\t% 3.2f in^2.\n\nIf you shared large pizzas, you would recieve only \n\n\t% 3.2f in^2.\n' % (smallPizzaPerPerson, largePizzaPerPerson))
-		elif smallPizzaPerPerson < largePizzaPerPerson:
-			print('\nYou should share a large pizza!\n\nSharing large pizzas nets you each\n\n\t% 3.2f in^2\n\nIf you got small pizzas, you would each only get\n\n\t% 3.2f in^2\n\n' % (largePizzaPerPerson, smallPizzaPerPerson))
+	people = int(input('\nHow many of you are there?\n'))
+	
+	smallPizzaPerPerson = pizzaPerPerson(people, "small")
+	
+	largePizzaPerPerson = pizzaPerPerson(people, "large")
+	
+	if smallPizzaPerPerson > largePizzaPerPerson:
+		print('\nYou are better off getting a smaller pizzas!\n\nYou will each get\n\n\t% 3.2f in^2.\n\nIf you shared large pizzas, you would recieve only \n\n\t% 3.2f in^2.\n' % (smallPizzaPerPerson, largePizzaPerPerson))
+	elif smallPizzaPerPerson < largePizzaPerPerson:
+		print('\nYou should share a large pizza!\n\nSharing large pizzas nets you each\n\n\t% 3.2f in^2\n\nIf you got small pizzas, you would each only get\n\n\t% 3.2f in^2\n\n' % (largePizzaPerPerson, smallPizzaPerPerson))
 
 # the main method
 def main():
